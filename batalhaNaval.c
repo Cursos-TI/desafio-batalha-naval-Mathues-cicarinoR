@@ -14,6 +14,7 @@ int main() {
     int Tamanho = 10;
 
     char Tabuleiro[Tamanho][Tamanho];
+    char Habilidades[Tamanho][Tamanho];
 
     for (int i = 0; i < Tamanho; i++)
     {
@@ -38,6 +39,13 @@ int main() {
     {
         Tabuleiro[8][j] = '1';
     }
+
+
+    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
+    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
+    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
+    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
+
 
     for (int i = 0; i < Tamanho; i++)
     {
@@ -72,20 +80,11 @@ int main() {
         }
         printf("\n");
     }
-    
-    
-    
-
-    return 0;
 
 
 
 
-    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
-
+ 
     // Nível Mestre - Habilidades Especiais com Matrizes
     // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
     // Sugestão: Utilize estruturas de repetição aninhadas para preencher as áreas afetadas por essas habilidades no tabuleiro.
@@ -106,6 +105,92 @@ int main() {
     // 0 0 1 0 0
     // 1 1 1 1 1
     // 0 0 1 0 0
+
+      for (int i = 0; i < Tamanho; i++)
+    {
+        for (int j = 0; j < Tamanho; j++)
+        {
+           Habilidades[i][j] = '0';
+        }
+    }
+
+    printf("    "); 
+    for (int j = 0; j < Tamanho; j++) {
+        printf("%c ", 'A' + j);
+    }
+    printf("\n");
+
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 6; j++)
+        {
+            if (i == 0 && j == 3)
+            {
+                Habilidades[i][j] = '1';
+            }
+            else if (i == 1 && j >= 2 && j < 4)
+            {
+                Habilidades[i][j] = '1';
+            }
+            else if (i == 2 && j >= 1 && j < 6)
+            {
+                Habilidades[i][j] = '1';
+            }
+            
+        }
+    }
+
+    for (int i = 4; i < 8; i++)
+    {
+        for (int j = 6; j <= 9; j++)
+        {
+            if (i == 4 && j == 7)
+            {
+                Habilidades[i][j] = '1';
+            }
+            else if (i == 5 && j >= 6 && j < 9)
+            {
+                Habilidades[i][j] = '1';
+            }
+            else if (i == 6 && j == 7)
+            {
+                Habilidades[i][j] = '1';
+            }
+            
+        }
+    }
+
+
+    for (int i = 7; i <= 9; i++)
+    {
+        for (int j = 0; j < 5; j++)
+        {
+            if (i == 7 && j == 2)
+            {
+                Habilidades[i][j] = '1';
+            }
+            else if (i == 8 && j >= 0 && j < 5)
+            {
+                Habilidades[i][j] = '1';
+            }
+            else if (i == 9 && j == 2)
+            {
+                Habilidades[i][j] = '1';
+            }
+            
+        }
+    }
+
+
+    for (int i = 0; i < Tamanho; i++)
+    {
+        printf("%2d  ", i + 1);
+        for (int j = 0; j < Tamanho; j++)
+        {
+            printf("%c ", Habilidades[i][j]);
+        }
+        printf("\n");
+    }
 
     return 0;
 }
