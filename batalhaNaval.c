@@ -11,7 +11,7 @@ int main() {
     // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
 
     // Declaração da matriz
-    int Tamanho = 15;
+    int Tamanho = 10;
 
     char Tabuleiro[Tamanho][Tamanho];
 
@@ -37,6 +37,30 @@ int main() {
     for (int j = 4; j < 7; j++)
     {
         Tabuleiro[8][j] = '1';
+    }
+
+    for (int i = 0; i < Tamanho; i++)
+    {
+        for (int j = 0; j < Tamanho; j++)
+        {
+            if (i == j && i >= 0 && i <= 2)
+            {
+                Tabuleiro[i][j] = '1';
+            }
+        }
+    }
+
+
+
+    for (int i = 0; i < Tamanho; i++)
+    {
+        for (int j = Tamanho - 1; j >= 0; j--)
+        {
+            if (j == (Tamanho - 1 - i) && i >= 0 && i <= 2)
+        {
+            Tabuleiro[i][j] = '1';
+        }
+        }
     }
 
     for (int i = 0; i < Tamanho; i++)
